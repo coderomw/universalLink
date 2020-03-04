@@ -74,7 +74,7 @@ universal link是苹果在iOS9上推出的一种能通过https链接跳转APP的
 LSApplicationQueriesSchemes中新增weixinULAPI
 ![](https://upload-images.jianshu.io/upload_images/2360306-95de9e8a313d8180.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200)
 具体细节可以参考微信SDK文档[https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html)
-3.这时候跑一下应用，我们可以到Safari测试一下，以微信为例，输入链接https://help.wechat.com/app/，下拉页面，会看到在“微信”中打开（系统iOS9.0以上，微信版本7.0.7及以上）。如果这时候出现了你的应用，说明文件配置成功了。
+3.这时候跑一下应用，我们可以到Safari测试一下，以微信为例，输入链接[https://help.wechat.com/app/]()，下拉页面，会看到在“微信”中打开（系统iOS9.0以上，微信版本7.0.7及以上）。如果这时候出现了你的应用，说明文件配置成功了。
 
 ![](https://upload-images.jianshu.io/upload_images/2360306-b7fccd5cf3cac9a8.jpeg?imageMogr2/auto-orient/strip|imageView2/2/w/1200)
 
