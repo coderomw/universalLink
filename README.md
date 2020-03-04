@@ -15,11 +15,11 @@
  */
 + (BOOL)registerApp:(NSString *)appid universalLink:(NSString *)universalLink;
 ```
-##universal link是个什么东西呢？
+## universal link是个什么东西呢？
 >Seamlessly link to content inside your app, or on your website in iOS 9 or later. With universal links, you can always give users the most integrated mobile experience, even when your app isn’t installed on their device.
 
 universal link是苹果在iOS9上推出的一种能通过https链接跳转APP的功能，可以使用相同的网址打开网址和APP。当你的应用支持universal link，用户点击链接时，会直接跳转到你的APP，而不需要经过Safari。当你的应用不支持时，会打开这个链接显示。比如在Safari和别的应用中点击某个链接，可以直接跳转到你的应用来，可以根据链接携带的信息进行解析，做出相应处理。
-##怎么支持universal link呢？
+## 怎么支持universal link呢？
 1.首先要有一个支持https协议的域名，在该域名的根目录上传文件，文件名为apple-app-site-association，没有后缀名，格式为
 ```
 {
