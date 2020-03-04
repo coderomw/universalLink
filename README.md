@@ -3,6 +3,7 @@
 ![](https://upload-images.jianshu.io/upload_images/2360306-00c815c04dcb37dc.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200)
 而微信从1.8.6版本开始才将UIWebView更换为WKWebView，所以最好将微信SDK升级到1.8.6以上。
 ![](https://upload-images.jianshu.io/upload_images/2360306-af26e5b63183a69e.png?imageMogr2/auto-orient/strip|imageView2/2/w/658)
+
 升级微信SDK后会发现注册方法变了，新增了一个参数universalLink。
 ```
 /*! @brief WXApi的成员函数，向微信终端程序注册第三方应用。
