@@ -76,11 +76,11 @@ LSApplicationQueriesSchemes中新增weixinULAPI
 具体细节可以参考微信SDK文档[https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html)
 3.这时候跑一下应用，我们可以到Safari测试一下，以微信为例，输入链接https://help.wechat.com/app/，下拉页面，会看到在“微信”中打开（系统iOS9.0以上，微信版本7.0.7及以上）。如果这时候出现了你的应用，说明文件配置成功了。
 
-![](//upload-images.jianshu.io/upload_images/2360306-b7fccd5cf3cac9a8.jpeg?imageMogr2/auto-orient/strip|imageView2/2/w/1200)
+![](https://upload-images.jianshu.io/upload_images/2360306-b7fccd5cf3cac9a8.jpeg?imageMogr2/auto-orient/strip|imageView2/2/w/1200)
 
 4.更新微信SDK至1.8.6及以上版本，到[微信开放平台](https://open.weixin.qq.com)添加好universal link，registerApp的时候赋值上你在微信开放平台填写的universal link。
 
-![](//upload-images.jianshu.io/upload_images/2360306-1105a227ea7191f9.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200)
+![](https://upload-images.jianshu.io/upload_images/2360306-1105a227ea7191f9.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200)
 
 这里的发送和接收请求的方法新增了回调，表示跳转到微信或者跳转回来是否成功，成功会返回success为YES。
 
@@ -106,7 +106,7 @@ LSApplicationQueriesSchemes中新增weixinULAPI
 
 5.通过universal link从微信跳转回应用时，不再走通过scheme跳转的openUrl:方法了，要实现continueUserActivity方法，判断一下类型。这里的url格式是你在微信后台填写的universal link拼上你的AppID。我这里因为分享和支付用的两个AppID，所以分开处理了一下，交给两个不同的单例，各自实现onResp:的回调。
 
-![](//upload-images.jianshu.io/upload_images/2360306-4e15b4b4e8f10090.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200)
+![](https://upload-images.jianshu.io/upload_images/2360306-4e15b4b4e8f10090.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200)
 
 以上。
 
