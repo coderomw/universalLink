@@ -39,9 +39,7 @@ universal link是苹果在iOS9上推出的一种能通过https链接跳转APP的
     }
 }
 ```
-这里为两个应用，多少个应用可自行添加，appID为teamId.bundleId，paths路径的意思是，在存放apple-app-site-association文件的域名后拼上什么是支持跳转到你APP的，星号代表通配符，比如腾讯的，[[https://help.wechat.com/apple-app-site-association](https://links.jianshu.com/go?to=https%3A%2F%2Fhelp.wechat.com%2Fapple-app-site-association)
-]([https://help.wechat.com/apple-app-site-association](https://links.jianshu.com/go?to=https%3A%2F%2Fhelp.wechat.com%2Fapple-app-site-association)
-)
+这里为两个应用，多少个应用可自行添加，appID为teamId.bundleId，paths路径的意思是，在存放apple-app-site-association文件的域名后拼上什么是支持跳转到你APP的，星号代表通配符，比如腾讯的，[https://help.wechat.com/apple-app-site-association](https://help.wechat.com/apple-app-site-association)
 ```
 {
     "applinks": {
@@ -75,12 +73,12 @@ universal link是苹果在iOS9上推出的一种能通过https链接跳转APP的
 ![](https://upload-images.jianshu.io/upload_images/2360306-b21470df3026c010.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200)
 LSApplicationQueriesSchemes中新增weixinULAPI
 ![](https://upload-images.jianshu.io/upload_images/2360306-95de9e8a313d8180.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200)
-具体细节可以参考微信SDK文档[https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html](https://links.jianshu.com/go?to=https%3A%2F%2Fdevelopers.weixin.qq.com%2Fdoc%2Foplatform%2FMobile_App%2FAccess_Guide%2FiOS.html)
+具体细节可以参考微信SDK文档[https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html)
 3.这时候跑一下应用，我们可以到Safari测试一下，以微信为例，输入链接https://help.wechat.com/app/，下拉页面，会看到在“微信”中打开（系统iOS9.0以上，微信版本7.0.7及以上）。如果这时候出现了你的应用，说明文件配置成功了。
 
 ![](//upload-images.jianshu.io/upload_images/2360306-b7fccd5cf3cac9a8.jpeg?imageMogr2/auto-orient/strip|imageView2/2/w/1200)
 
-4.更新微信SDK至1.8.6及以上版本，到[微信开放平台](https://links.jianshu.com/go?to=https%3A%2F%2Fopen.weixin.qq.com)添加好universal link，registerApp的时候赋值上你在微信开放平台填写的universal link。
+4.更新微信SDK至1.8.6及以上版本，到[微信开放平台](https://open.weixin.qq.com)添加好universal link，registerApp的时候赋值上你在微信开放平台填写的universal link。
 
 ![](//upload-images.jianshu.io/upload_images/2360306-1105a227ea7191f9.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200)
 
