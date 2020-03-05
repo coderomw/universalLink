@@ -16,12 +16,20 @@
  */
 + (BOOL)registerApp:(NSString *)appid universalLink:(NSString *)universalLink;
 ```
+
+
 ## universal link是个什么东西呢？
+
 >Seamlessly link to content inside your app, or on your website in iOS 9 or later. With universal links, you can always give users the most integrated mobile experience, even when your app isn’t installed on their device.
 
 universal link是苹果在iOS9上推出的一种能通过https链接跳转APP的功能，可以使用相同的网址打开网址和APP。当你的应用支持universal link，用户点击链接时，会直接跳转到你的APP，而不需要经过Safari。当你的应用不支持时，会打开这个链接显示。比如在Safari和别的应用中点击某个链接，可以直接跳转到你的应用来，可以根据链接携带的信息进行解析，做出相应处理。
+
+
+
 ## 怎么支持universal link呢？
+
 1.首先要有一个支持https协议的域名，在该域名的根目录上传文件，文件名为apple-app-site-association，没有后缀名，格式为
+
 ```
 {
     "applinks": {
@@ -39,7 +47,7 @@ universal link是苹果在iOS9上推出的一种能通过https链接跳转APP的
     }
 }
 ```
-这里为两个应用，多少个应用可自行添加，appID为teamId.bundleId，paths路径的意思是，在存放apple-app-site-association文件的域名后拼上什么是支持跳转到你APP的，星号代表通配符，比如腾讯的，[https://help.wechat.com/apple-app-site-association](https://help.wechat.com/apple-app-site-association)
+这里为两个应用，多少个应用可自行添加，appID为teamId.bundleId，paths路径的意思是，在存放apple-app-site-association文件的域名后拼上什么是支持跳转到你APP的，星号代表通配符，比如腾讯的配置，[https://help.wechat.com/apple-app-site-association](https://help.wechat.com/apple-app-site-association)
 ```
 {
     "applinks": {
@@ -69,14 +77,23 @@ universal link是苹果在iOS9上推出的一种能通过https链接跳转APP的
     }
 }
 ```
+
+
 2.到xcode中配置文件存放的域名，以applinks:开头，拼上域名。当手机下载完应用或者apple-app-site-association文件发生更改时，会去请求这个根目录文件，从而响应支持的跳转格式。
 ![](https://upload-images.jianshu.io/upload_images/2360306-b21470df3026c010.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200)
 LSApplicationQueriesSchemes中新增weixinULAPI
 ![](https://upload-images.jianshu.io/upload_images/2360306-95de9e8a313d8180.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200)
 具体细节可以参考微信SDK文档[https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html)
+
+
+
 3.这时候跑一下应用，我们可以到Safari测试一下，以微信为例，输入链接[https://help.wechat.com/app/]()，下拉页面，会看到在“微信”中打开（系统iOS9.0以上，微信版本7.0.7及以上）。如果这时候出现了你的应用，说明文件配置成功了。
 
-![](https://upload-images.jianshu.io/upload_images/2360306-b7fccd5cf3cac9a8.jpeg?imageMogr2/auto-orient/strip|imageView2/2/w/1200)
+<img src="https://upload-images.jianshu.io/upload_images/2360306-b7fccd5cf3cac9a8.jpeg?imageMogr2/auto-orient/strip|imageView2/2/w/1200" style="zoom:22%;" />
+
+
+
+
 
 4.更新微信SDK至1.8.6及以上版本，到[微信开放平台](https://open.weixin.qq.com)添加好universal link，registerApp的时候赋值上你在微信开放平台填写的universal link。
 
@@ -103,6 +120,8 @@ LSApplicationQueriesSchemes中新增weixinULAPI
  */
 + (void)sendResp:(BaseResp*)resp completion:(void (^ __nullable)(BOOL success))completion;
 ```
+
+
 
 5.通过universal link从微信跳转回应用时，不再走通过scheme跳转的openUrl:方法了，要实现continueUserActivity方法，判断一下类型。这里的url格式是你在微信后台填写的universal link拼上你的AppID。我这里因为分享和支付用的两个AppID，所以分开处理了一下，交给两个不同的单例，各自实现onResp:的回调。
 
