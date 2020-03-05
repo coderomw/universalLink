@@ -89,7 +89,7 @@ LSApplicationQueriesSchemes中新增weixinULAPI
 
 3.这时候跑一下应用，我们可以到Safari测试一下，以微信为例，输入链接[https://help.wechat.com/app/]()，下拉页面，会看到在“微信”中打开（系统iOS9.0以上，微信版本7.0.7及以上）。如果这时候出现了你的应用，说明文件配置成功了。
 
-<img src="https://upload-images.jianshu.io/upload_images/2360306-b7fccd5cf3cac9a8.jpeg?imageMogr2/auto-orient/strip|imageView2/2/w/1200" style="zoom:22%;" />
+<img src="https://upload-images.jianshu.io/upload_images/2360306-b7fccd5cf3cac9a8.jpeg?imageMogr2/auto-orient/strip|imageView2/2/w/1200" width="30%" />
 
 
 
