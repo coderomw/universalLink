@@ -6,6 +6,7 @@
 <img src="https://upload-images.jianshu.io/upload_images/2360306-af26e5b63183a69e.png?imageMogr2/auto-orient/strip|imageView2/2/w/658" width="30%" />
 
 <br/>升级微信SDK后会发现注册方法变了，新增了一个参数universalLink。
+
 ```
 /*! @brief WXApi的成员函数，向微信终端程序注册第三方应用。
  *
@@ -78,15 +79,17 @@ universal link是苹果在iOS9上推出的一种能通过https链接跳转APP的
     }
 }
 ```
+<br/><br/>
 
-
-2.到xcode中配置文件存放的域名，以applinks:开头，拼上域名。当手机下载完应用或者apple-app-site-association文件发生更改时，会去请求这个根目录文件，从而响应支持的跳转格式。
-<img src="https://upload-images.jianshu.io/upload_images/2360306-b21470df3026c010.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200" width="30%" />
-LSApplicationQueriesSchemes中新增weixinULAPI
+2.到xcode中配置文件存放的域名，以applinks:开头，拼上域名。当手机下载完应用或者apple-app-site-association文件发生更改时，会去请求这个根目录文件，从而响应支持的跳转格式。<br/>
+<img src="https://upload-images.jianshu.io/upload_images/2360306-b21470df3026c010.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200" width="30%" /><br/>
+LSApplicationQueriesSchemes中新增weixinULAPI<br/>
 <img src="https://upload-images.jianshu.io/upload_images/2360306-95de9e8a313d8180.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200" width="30%" />
-具体细节可以参考微信SDK文档[https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html)
+<br/>具体细节可以参考微信SDK文档[https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html)
 
+<br/>
 
+<br/>
 
 3.这时候跑一下应用，我们可以到Safari测试一下，以微信为例，输入链接[https://help.wechat.com/app/]()，下拉页面，会看到在“微信”中打开（系统iOS9.0以上，微信版本7.0.7及以上）。如果这时候出现了你的应用，说明文件配置成功了。
 
@@ -94,7 +97,7 @@ LSApplicationQueriesSchemes中新增weixinULAPI
 
 
 
-
+<br/><br/>
 
 4.更新微信SDK至1.8.6及以上版本，到[微信开放平台](https://open.weixin.qq.com)添加好universal link，registerApp的时候赋值上你在微信开放平台填写的universal link。
 
@@ -122,7 +125,7 @@ LSApplicationQueriesSchemes中新增weixinULAPI
 + (void)sendResp:(BaseResp*)resp completion:(void (^ __nullable)(BOOL success))completion;
 ```
 
-
+<br/><br/>
 
 5.通过universal link从微信跳转回应用时，不再走通过scheme跳转的openUrl:方法了，要实现continueUserActivity方法，判断一下类型。这里的url格式是你在微信后台填写的universal link拼上你的AppID。我这里因为分享和支付用的两个AppID，所以分开处理了一下，交给两个不同的单例，各自实现onResp:的回调。
 
