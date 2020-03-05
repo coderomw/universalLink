@@ -1,10 +1,11 @@
 # 项目添加universal-link跳转，升级微信SDK
-苹果对还未从UIWebView更新到WKWebView的应用做出了明确规定：新应用最晚于2020年4月份，更新的应用最晚于2020年12月前，都要更新到WKWebView，未更新的应用将会被拒审。
-<img src="https://upload-images.jianshu.io/upload_images/2360306-00c815c04dcb37dc.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200" width="30%" />
-而微信从1.8.6版本开始才将UIWebView更换为WKWebView，所以最好将微信SDK升级到1.8.6以上。
+苹果对还未从UIWebView更新到WKWebView的应用做出了明确规定：新应用最晚于2020年4月份，更新的应用最晚于2020年12月前，都要更新到WKWebView，未更新的应用将会被拒审。<br/>
+
+<img src="https://upload-images.jianshu.io/upload_images/2360306-00c815c04dcb37dc.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200" width="30%" /><br/>
+而微信从1.8.6版本开始才将UIWebView更换为WKWebView，所以最好将微信SDK升级到1.8.6以上。<br/>
 <img src="https://upload-images.jianshu.io/upload_images/2360306-af26e5b63183a69e.png?imageMogr2/auto-orient/strip|imageView2/2/w/658" width="30%" />
 
-升级微信SDK后会发现注册方法变了，新增了一个参数universalLink。
+<br/>升级微信SDK后会发现注册方法变了，新增了一个参数universalLink。
 ```
 /*! @brief WXApi的成员函数，向微信终端程序注册第三方应用。
  *
