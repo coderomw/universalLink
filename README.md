@@ -1,8 +1,8 @@
 # 项目添加universal-link跳转，升级微信SDK
 苹果对还未从UIWebView更新到WKWebView的应用做出了明确规定：新应用最晚于2020年4月份，更新的应用最晚于2020年12月前，都要更新到WKWebView，未更新的应用将会被拒审。
-<img src="https://upload-images.jianshu.io/upload_images/2360306-00c815c04dcb37dc.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200" style="zoom:33%;" />
+<img src="https://upload-images.jianshu.io/upload_images/2360306-00c815c04dcb37dc.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200" width="30%" />
 而微信从1.8.6版本开始才将UIWebView更换为WKWebView，所以最好将微信SDK升级到1.8.6以上。
-<img src="https://upload-images.jianshu.io/upload_images/2360306-af26e5b63183a69e.png?imageMogr2/auto-orient/strip|imageView2/2/w/658" style="zoom:33%;" />
+<img src="https://upload-images.jianshu.io/upload_images/2360306-af26e5b63183a69e.png?imageMogr2/auto-orient/strip|imageView2/2/w/658" width="30%" />
 
 升级微信SDK后会发现注册方法变了，新增了一个参数universalLink。
 ```
@@ -80,9 +80,9 @@ universal link是苹果在iOS9上推出的一种能通过https链接跳转APP的
 
 
 2.到xcode中配置文件存放的域名，以applinks:开头，拼上域名。当手机下载完应用或者apple-app-site-association文件发生更改时，会去请求这个根目录文件，从而响应支持的跳转格式。
-<img src="https://upload-images.jianshu.io/upload_images/2360306-b21470df3026c010.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200" style="zoom:33%;" />
+<img src="https://upload-images.jianshu.io/upload_images/2360306-b21470df3026c010.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200" width="30%" />
 LSApplicationQueriesSchemes中新增weixinULAPI
-<img src="https://upload-images.jianshu.io/upload_images/2360306-95de9e8a313d8180.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200" style="zoom:33%;" />
+<img src="https://upload-images.jianshu.io/upload_images/2360306-95de9e8a313d8180.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200" width="30%" />
 具体细节可以参考微信SDK文档[https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html)
 
 
@@ -125,7 +125,7 @@ LSApplicationQueriesSchemes中新增weixinULAPI
 
 5.通过universal link从微信跳转回应用时，不再走通过scheme跳转的openUrl:方法了，要实现continueUserActivity方法，判断一下类型。这里的url格式是你在微信后台填写的universal link拼上你的AppID。我这里因为分享和支付用的两个AppID，所以分开处理了一下，交给两个不同的单例，各自实现onResp:的回调。
 
-<img src="https://upload-images.jianshu.io/upload_images/2360306-4e15b4b4e8f10090.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200" style="zoom:33%;" />
+<img src="https://upload-images.jianshu.io/upload_images/2360306-4e15b4b4e8f10090.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200" width="30%" />
 
 以上。
 
