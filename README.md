@@ -127,7 +127,7 @@ universal link是苹果在iOS9上推出的一种能通过https链接跳转APP的
 
 <br/><br/>
 
-5. 通过universal link从微信跳转回应用时，不再走通过scheme跳转的openUrl:方法了，要实现continueUserActivity方法，判断一下类型。这里的url格式是你在微信后台填写的universal link拼上你的AppID。我这里因为分享和支付用的两个AppID，所以分开处理了一下，交给两个不同的单例，各自实现onResp:的回调。
+5. 通过universal link从微信跳转回应用时，不再走通过scheme跳转的openUrl:方法了，要实现continueUserActivity方法，判断一下类型。这里的url格式是你在微信后台填写的universal link拼上你的AppID。我这里因为分享和支付用的两个AppID，所以分开处理了一下，交给两个不同的单例，各自实现onResp:的回调。如果你的微信支付和分享用的同一个AppID,支付回来的链接微信会带上/pay/，可以通过这个来区分。
 
 <img src="https://upload-images.jianshu.io/upload_images/2360306-4e15b4b4e8f10090.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200" width="30%" />
 
